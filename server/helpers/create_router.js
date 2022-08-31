@@ -1,11 +1,20 @@
 const express = require("express");
+const ObjectId = require("mongodb").ObjectId;
 
-const createRouter = (data) => {
+const createRouter = (collection) => {
 
     const Router = express.Router();
 
     Router.get("/", (request, response) => {
-        response.json(data);
+        collection
+            .find()
+            .toArray()
+            .then(docs => response.json(docs))
+            .catch((err) => {
+                console.error(err);
+                res.status(500);
+                res.json({ status: 500, error: err });
+              });
     })
 
     Router.post("/", (request, response) => {
