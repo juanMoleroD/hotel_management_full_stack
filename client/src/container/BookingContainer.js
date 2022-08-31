@@ -28,9 +28,6 @@ const BookingContainer = () => {
             </header>
             <main>
                 <BookingForm getBookings={getBookings}/>
-                <section>
-                    
-                </section>
                 <h2>All Bookings</h2>
                 <section>
                     {bookings ?

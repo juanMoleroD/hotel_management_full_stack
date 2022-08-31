@@ -21,7 +21,7 @@ const createRouter = function (collections) {
         const newDataToAdd = request.body;
         collections
             .insertOne(newDataToAdd)
-            .then( () => response.json({status: 200}))
+            .then( result => response.json(result))
             .catch(error => {
                 console.error;
                 response.status(500);
