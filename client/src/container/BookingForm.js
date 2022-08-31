@@ -36,9 +36,19 @@ const BookingForm = ({getBookings}) => {
             <h2>Add Booking</h2>
             <form id="booking-form" onSubmit={handleFormSubmit}>
                 <label>Guestname</label>
-                <input type="text" name="guestName" value={newBooking.guestName} onChange={handleTextInput}/>
+                <input 
+                    type="text" 
+                    name="guestName" 
+                    value={newBooking.guestName} 
+                    onChange={handleTextInput}
+                    required />
                 <label>Guest Email</label>
-                <input type="text" name="guestEmail" value={newBooking.guestEmail} onChange={handleTextInput}/>
+                <input 
+                    type="email" 
+                    name="guestEmail" 
+                    value={newBooking.guestEmail} 
+                    onChange={handleTextInput} 
+                    required/>
                 <label>Status</label>
                 <input type="text" name="guestStatus" value={newBooking.guestStatus} onChange={handleTextInput}/>
                 <br/>
