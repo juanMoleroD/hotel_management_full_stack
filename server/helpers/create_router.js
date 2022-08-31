@@ -22,4 +22,4 @@ const createRouter = (data) => {
     return Router;
 }
 
-module.export = createRouter;
+module.exports = createRouter;
