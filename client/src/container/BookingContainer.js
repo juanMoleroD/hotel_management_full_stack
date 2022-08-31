@@ -1,6 +1,21 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 
 const BookingContainer = () => {
+
+    const [bookings, setBookings] = useState([]);
+    const [newBooking, setNewBooking] = useState( {name: ""} );
+    
+    const getBookings = () => {
+        fetch("http://localhost:9000/api/bookings")
+            .then(response => response.json())
+            .then(result => setBookings(result));
+    }
+
+    useEffect(() => {
+        getBookings()
+    }, []);
+
+
     return (
         <>
             <header>
