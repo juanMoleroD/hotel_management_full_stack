@@ -12,6 +12,11 @@ const BookingContainer = () => {
             .then(result => setBookings(result));
     }
 
+    const deleteByIndex = (index) => {
+        fetch("http://localhost:9000/api/bookings/" + index, {method: "Delete"})
+            .then(() => getBookings());
+    }
+
     useEffect(() => {
         getBookings()
     }, []);
@@ -29,7 +34,7 @@ const BookingContainer = () => {
                 <h2>All Bookings</h2>
                 <section>
                     {bookings ?
-                    <BookingList bookings={bookings}/>:
+                    <BookingList bookings={bookings} deleteByIndex={deleteByIndex}/>:
                     <p>Loading...</p> }
                     
                 </section>

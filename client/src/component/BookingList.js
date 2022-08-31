@@ -1,10 +1,10 @@
 import React from "react";
 import Booking from "./Booking";
 
-const BookingList = ({bookings}) => {
+const BookingList = ({bookings, deleteByIndex}) => {
     
     const bookingNodes = bookings.map( (booking, index) => {
-        return <Booking key={index} booking={booking}/>
+        return <Booking key={index} booking={booking} index={index} deleteByIndex={deleteByIndex} />
     })
 
     return (
