@@ -4,7 +4,7 @@ import BookingList from "../component/BookingList";
 const BookingContainer = () => {
 
     const [bookings, setBookings] = useState([]);
-    const [newBooking, setNewBooking] = useState( {name: ""} );
+    const [newBooking, setNewBooking] = useState("");
     
     const getBookings = () => {
         fetch("http://localhost:9000/api/bookings")
@@ -17,6 +17,24 @@ const BookingContainer = () => {
     }, []);
 
 
+    const handleFormSubmit = (event) => {
+        event.preventDefault();
+        const payload = {
+            name: newBooking
+        }
+        fetch("http://localhost:9000/api/bookings", {
+            method: "Post",
+            body: JSON.stringify(payload),
+            headers: { 'Content-Type': 'application/json' }
+        })
+        .then(() => getBookings());
+        setNewBooking("");
+    }
+
+    const handleTextInput = (event) => {
+        setNewBooking(event.target.value);
+    } 
+
     return (
         <>
             <header>
@@ -25,9 +43,9 @@ const BookingContainer = () => {
             <main>
                 <section>
                     <h2>Add Booking</h2>
-                    <form>
-                        <label>Booking number</label>
-                        <input type="text"/>
+                    <form id="booking-form" onSubmit={handleFormSubmit}>
+                        <label>Booking name</label>
+                        <input type="text" value={newBooking} onChange={handleTextInput}/>
                         <input type="submit" value="send"/>
                     </form>
                 </section>
