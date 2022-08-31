@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import BookingList from "../component/BookingList";
 
 const BookingContainer = () => {
 
@@ -32,14 +33,10 @@ const BookingContainer = () => {
                 </section>
                 <h2>All Bookings</h2>
                 <section>
-                    <p>this is a booking</p>
-                    <button>Delete</button>
-                    <p>this is a booking</p>
-                    <button>Delete</button>
-                    <p>this is a booking</p>
-                    <button>Delete</button>
-                    <p>this is a booking</p>
-                    <button>Delete</button>
+                    {bookings ?
+                    <BookingList bookings={bookings}/>:
+                    <p>Loading...</p> }
+                    
                 </section>
             </main>
         </>
