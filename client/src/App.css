@@ -7,3 +7,15 @@
   width: 40%;
   border: 1px solid black;
 }
+
+#booking-form {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#booking-form > label, input {
+  padding: 10px 0px;
+  width: 90%;
+}
