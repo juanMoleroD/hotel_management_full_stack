@@ -1,9 +1,10 @@
 import React from "react";
+import Booking from "./Booking";
 
 const BookingList = ({bookings}) => {
     
     const bookingNodes = bookings.map( (booking, index) => {
-        return <p key={index}>{booking.name}</p>
+        return <Booking key={index} booking={booking}/>
     })
 
     return (
