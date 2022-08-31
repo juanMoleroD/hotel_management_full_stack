@@ -11,7 +11,6 @@ const bookings = [
     {name: "Booking 3"}
 ]
 
-
 const createRouter = require("./helpers/create_router");
 
 const bookingsRouter = createRouter(bookings);

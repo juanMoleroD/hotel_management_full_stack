@@ -36,7 +36,6 @@ const BookingContainer = () => {
                     {bookings ?
                     <BookingList bookings={bookings} deleteByIndex={deleteByIndex}/>:
                     <p>Loading...</p> }
-                    
                 </section>
             </main>
         </>
