@@ -1,6 +1,6 @@
 use hotel;
 
-db.dropdatabase();
+db.dropDatabase();
 
 db.bookings.insertMany([
     {
