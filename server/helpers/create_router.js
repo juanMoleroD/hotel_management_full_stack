@@ -19,14 +19,16 @@ const createRouter = function (collections) {
 
     Router.post("/", (request, response) => {
         const newDataToAdd = request.body;
-        collections
-            .insertOne(newDataToAdd)
-            .then( result => response.json(result))
-            .catch(error => {
-                console.error;
-                response.status(500);
-                response.json({status: 500, error: error});
-            });
+        if (newDataToAdd.guestName && newDataToAdd.guestEmail) {
+            collections
+                .insertOne(newDataToAdd)
+                .then( result => response.json(result))
+                .catch(error => {
+                    console.error;
+                    response.status(500);
+                    response.json({status: 500, error: error});
+                });
+        }
     })
 
     Router.delete("/:id", (request,response) => {
